@@ -3,168 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>True Faith Church International of Ghana - Youth Association</title>
+    <title>G-Free Church International Youth Association</title>
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            background: #f4f6f9;
+        }
+
+        body {
+            background: #f5f5f5;
+            animation: fadeInBody 1.5s ease-in-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         /* Header */
-        header {
+        .header {
             position: relative;
+            text-align: center;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #b30000, #ff4d4d);
             color: white;
-            text-align: center;
-            padding: 40px 20px;
+            overflow: hidden;
         }
 
-        .logo {
+        .header img {
             width: 80px;
             position: absolute;
             top: 20px;
         }
 
-        .logo-left { left: 20px; }
-        .logo-right { right: 20px; }
-
-        header h1 {
-            margin: 0;
-            font-size: 32px;
+        /* Logo Animations */
+        .logo-left {
+            left: 20px;
+            animation: slideInLeft 1.5s ease forwards;
         }
 
-        header h2 {
-            margin: 5px 0 0;
-            font-weight: 300;
+        .logo-right {
+            right: 20px;
+            animation: slideInRight 1.5s ease forwards;
         }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 400px;
-            background: url('banner.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h2 {
+        .header h1 {
             font-size: 36px;
+            animation: zoomIn 1.5s ease;
         }
 
-        .btn {
-            background: #ffcc00;
-            color: #000;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 15px;
+        .header h2 {
+            font-weight: 300;
+            margin-top: 5px;
+            animation: fadeInUp 2s ease;
         }
 
-        /* Sections */
-        section {
-            padding: 40px 20px;
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            animation: kenBurns 20s infinite alternate ease-in-out;
+        }
+
+        /* Ken Burns Effect */
+        @keyframes kenBurns {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .quote-carousel {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 18px;
             text-align: center;
+            max-width: 80%;
+            animation: fadeInUp 2s ease;
         }
 
-        .cards {
+        /* Members Section */
+        .members {
+            padding: 40px 20px;
+        }
+
+        .members h2 {
+            text-align: center;
+            color: #b30000;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .member-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
         }
 
-        .card {
-            background: white;
+        .member {
+            background: #fafafa;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
+            text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transform: translateY(40px);
+            opacity: 0;
+            transition: all 0.5s ease;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        /* Hover Animation */
+        .member:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        /* Members */
         .member img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #b30000;
+        }
+
+        .member h4 {
+            margin-bottom: 5px;
+        }
+
+        .member p {
+            color: #777;
         }
 
         /* Footer */
-        footer {
+        .footer {
+            text-align: center;
+            padding: 20px;
             background: #b30000;
             color: white;
-            padding: 20px;
+        }
+
+        /* Scroll Reveal */
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="logo.png" class="logo logo-left" alt="Logo">
-    <img src="logo.png" class="logo logo-right" alt="Logo">
-    <h1>True Faith Church International of Ghana</h1>
-    <h2>Youth Association</h2>
-</header>
-
-<section class="hero">
-    <div class="hero-content">
-        <h2>You Are the Light of the World</h2>
-        <p>Matthew 5:14–16</p>
-        <button class="btn">Join Us</button>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <img src="logo.png" alt="Church Logo" class="logo-left">
+        <img src="logo.png" alt="Church Logo" class="logo-right">
+        <h1>G-Free Church International</h1>
+        <h2>Youth Association</h2>
     </div>
-</section>
 
-<section>
-    <h2>Announcements</h2>
-    <div class="cards">
-        <div class="card">Youth Prayer Meeting – Friday 6:00 PM</div>
-        <div class="card">Bible Study – Wednesday 6:30 PM</div>
-        <div class="card">Monthly Fellowship – Last Saturday</div>
-    </div>
-</section>
-
-<section>
-    <h2>Executive Members</h2>
-    <div class="cards">
-        <div class="card member">
-            <img src="member1.jpg" alt="President">
-            <h3>President</h3>
-            <p>Name Here</p>
-        </div>
-        <div class="card member">
-            <img src="member2.jpg" alt="Vice President">
-            <h3>Vice President</h3>
-            <p>Name Here</p>
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="event.jpg" alt="Event Banner">
+        <div class="quote-carousel" id="quote">
+            “You are the light of the world. A city set on a hill cannot be hidden.” – Matthew 5:14
         </div>
     </div>
-</section>
 
-<footer>
-    <p>True Faith Church International of Ghana | Accra, Ghana</p>
-    <p>Contact: +233 XXX XXX XXX | youth@truefaithchurch.org.gh</p>
-</footer>
+    <!-- Members Section -->
+    <div class="members">
+        <h2 class="reveal">Executive Members</h2>
+        <div class="member-grid">
+            <div class="member reveal">
+                <img src="member1.jpg" alt="Organizer">
+                <h4>John Doe</h4>
+                <p>Organizer</p>
+            </div>
+            <div class="member reveal">
+                <img src="member2.jpg" alt="Treasurer">
+                <h4>Jane Smith</h4>
+                <p>Treasurer</p>
+            </div>
+            <!-- Add more members as needed -->
+        </div>
+    </div>
 
-</body>
-</html>
+    <!-- Footer -->
+    <div class="footer">
+        G-Free Church International Youth Association | Contact: +233 XXX XXX XXX
+    </div>
+</div>
+
+<script>
+    // Scroll Reveal Animation
+    const reveals = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top
