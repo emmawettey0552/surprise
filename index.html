@@ -51,47 +51,18 @@
             top: 20px;
         }
 
-        .logo-left {
-            left: 20px;
-            animation: slideInLeft 1.5s ease forwards;
-        }
-
-        .logo-right {
-            right: 20px;
-            animation: slideInRight 1.5s ease forwards;
-        }
-
-        @keyframes slideInLeft {
-            from { transform: translateX(-120px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideInRight {
-            from { transform: translateX(120px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+        .logo-left { left: 20px; }
+        .logo-right { right: 20px; }
 
         .header h1 {
             font-size: 34px;
             font-weight: 700;
-            animation: zoomIn 1.5s ease;
         }
 
         .header h2 {
             font-size: 20px;
             font-weight: 300;
             margin-top: 10px;
-            animation: fadeInUp 2s ease;
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.7); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
 
         /* Banner Section */
@@ -124,6 +95,44 @@
             font-size: 18px;
             text-align: center;
             max-width: 80%;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Announcement Panel */
+        .announcement-panel {
+            padding: 40px 20px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+
+        .announcement-panel h2 {
+            color: #b30000;
+            margin-bottom: 20px;
+        }
+
+        .screen {
+            background: #000;
+            color: #00ff9c;
+            font-family: "Courier New", monospace;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            min-height: 120px;
+            box-shadow: 0 0 20px rgba(0, 255, 156, 0.5);
+        }
+
+        .cursor {
+            display: inline-block;
+            font-weight: bold;
+            color: #00ff9c;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
         }
 
         /* Members Section */
@@ -166,15 +175,6 @@
             border: 3px solid #b30000;
         }
 
-        .member h4 {
-            margin-bottom: 5px;
-        }
-
-        .member p {
-            color: #777;
-        }
-
-        /* Footer */
         .footer {
             text-align: center;
             padding: 20px;
@@ -183,61 +183,13 @@
             font-size: 14px;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .header img {
-                width: 60px;
-            }
-            .header h1 {
-                font-size: 24px;
-            }
-            .header h2 {
-                font-size: 16px;
-            }
-            .banner img {
-                height: 250px;
-            }
-            /* Announcement Panel */
-           .announcement-panel {
-               padding: 40px 20px;
-               text-align: center;
-               background: #f9f9f9;
-            }
-
-           .announcement-panel h2  {
-               color: #b30000;
-               margin-bottom: 20px;
-           } 
-          /* Screen Design */
-          .screen {
-               background: #000;
-               color: #00ff9c;
-               font-family: "Courier New", monospace;
-               padding: 30px;
-               border-radius: 12px;
-               max-width: 800px;
-               margin: auto;
-               text-align: left;
-               min-height: 120px;
-               box-shadow: 0 0 20px rgba(0, 255, 156, 0.5);
-               position: relative;
-            }
-
-           /* Blinking Cursor */
-           .cursor {
-               display: inline-block;
-               font-weight: bold;
-               color: #00ff9c;
-               animation: blink 1s infinite;
-            } 
-
-             @keyframes blink {
-             0%, 50%, 100% { opacity: 1; }
-             25%, 75% { opacity: 0; }
-           }
-           }
-
-           }
+            .header img { width: 60px; }
+            .header h1 { font-size: 24px; }
+            .header h2 { font-size: 16px; }
+            .banner img { height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -251,20 +203,21 @@
         <h2>Youth Association</h2>
     </div>
 
-    <!-- Banner / Announcement Section -->
+    <!-- Banner -->
     <div class="banner">
-        <!-- Announcement Panel -->
-<div class="announcement-panel">
-    <h2>📢 Youth Announcements</h2>
-    <div class="screen">
-        <p id="typewriter"></p><span class="cursor">|</span>
-    </div>
-</div>
         <img src="file_00000000386071f6857c6b16586d46ed.png" alt="Event Banner">
         <div class="quote-carousel" id="quote">
-            “You are the light of the world. A city set on a hill cannot be hidden.” – Matthew 5:14
+            “You are the light of the world.” – Matthew 5:14
         </div>
     </div>
+
+    <!-- Announcement Panel -->
+    <section class="announcement-panel">
+        <h2>📢 Youth Announcements</h2>
+        <div class="screen">
+            <span id="typewriter"></span><span class="cursor">|</span>
+        </div>
+    </section>
 
     <!-- Members Section -->
     <div class="members">
@@ -280,7 +233,6 @@
                 <h4>Jane Smith</h4>
                 <p>Treasurer</p>
             </div>
-            <!-- Add more members as needed -->
         </div>
     </div>
 
@@ -291,59 +243,59 @@
 </div>
 
 <script>
-    // Rotating Bible Quotations
+document.addEventListener("DOMContentLoaded", function () {
+    // Quote Carousel
     const quotes = [
-        "“You are the light of the world. A city set on a hill cannot be hidden.” – Matthew 5:14",
+        "“You are the light of the world.” – Matthew 5:14",
         "“Let your light shine before others.” – Matthew 5:16",
-        "“I can do all things through Christ who strengthens me.” – Philippians 4:13",
+        "“I can do all things through Christ.” – Philippians 4:13",
         "“Trust in the Lord with all your heart.” – Proverbs 3:5"
     ];
 
-    let index = 0;
+    let qIndex = 0;
     const quoteElement = document.getElementById("quote");
 
     setInterval(() => {
-        index = (index + 1) % quotes.length;
+        qIndex = (qIndex + 1) % quotes.length;
         quoteElement.style.opacity = 0;
         setTimeout(() => {
-            quoteElement.textContent = quotes[index];
+            quoteElement.textContent = quotes[qIndex];
             quoteElement.style.opacity = 1;
         }, 500);
     }, 5000);
-    <script>
-// List of announcements to display
-const announcements = [
-    "Welcome to the True Faith Church International of Ghana Youth Association.",
-    "Youth Prayer Meeting holds every Friday at 6:00 PM.",
-    "Bible Study takes place every Wednesday at 6:30 PM.",
-    "Youth Impact Conference is coming soon. Stay tuned!",
-    "Remember: You are the light of the world – Matthew 5:14-16."
-];
 
-let announcementIndex = 0;
-let charIndex = 0;
-const typewriterElement = document.getElementById("typewriter");
+    // Typewriter Announcement Panel
+    const announcements = [
+        "Welcome to the True Faith Church International of Ghana Youth Association.",
+        "Youth Prayer Meeting holds every Friday at 6:00 PM.",
+        "Bible Study takes place every Wednesday at 6:30 PM.",
+        "Youth Impact Conference is coming soon. Stay tuned!",
+        "Remember: You are the light of the world – Matthew 5:14-16."
+    ];
 
-// Typing effect
-function typeWriter() {
-    if (charIndex < announcements[announcementIndex].length) {
-        typewriterElement.textContent += announcements[announcementIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, 50); // Typing speed
-    } else {
-        // Pause before showing the next announcement
-        setTimeout(() => {
-            typewriterElement.textContent = "";
-            charIndex = 0;
-            announcementIndex = (announcementIndex + 1) % announcements.length;
-            typeWriter();
-        }, 3000);
+    const typewriter = document.getElementById("typewriter");
+    let aIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+        const text = announcements[aIndex];
+
+        if (!deleting && charIndex < text.length) {
+            typewriter.textContent += text.charAt(charIndex++);
+            setTimeout(typeEffect, 50);
+        } else if (deleting && charIndex > 0) {
+            typewriter.textContent = text.substring(0, --charIndex);
+            setTimeout(typeEffect, 25);
+        } else {
+            deleting = !deleting;
+            if (!deleting) aIndex = (aIndex + 1) % announcements.length;
+            setTimeout(typeEffect, 1500);
+        }
     }
-}
 
-// Start typing when the page loads
-window.onload = typeWriter;
-</script>
+    typeEffect();
+});
 </script>
 
 </body>
