@@ -36,7 +36,7 @@
             overflow: hidden;
         }
 
-        /* Header */
+        /* HEADER */
         .header {
             position: relative;
             text-align: center;
@@ -65,7 +65,7 @@
             margin-top: 10px;
         }
 
-        /* Banner Section */
+        /* BANNER */
         .banner {
             position: relative;
             overflow: hidden;
@@ -88,17 +88,16 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: #fff;
+            background: rgba(0,0,0,0.6);
+            color: white;
             padding: 15px 25px;
             border-radius: 8px;
             font-size: 18px;
-            text-align: center;
             max-width: 80%;
             transition: opacity 0.5s ease;
         }
 
-        /* Announcement Panel */
+        /* ANNOUNCEMENT */
         .announcement-panel {
             padding: 40px 20px;
             text-align: center;
@@ -111,31 +110,28 @@
         }
 
         .screen {
-            background: #000;
+            background: black;
             color: #00ff9c;
-            font-family: "Courier New", monospace;
+            font-family: monospace;
             padding: 30px;
             border-radius: 12px;
             max-width: 800px;
             margin: auto;
             text-align: left;
             min-height: 120px;
-            box-shadow: 0 0 20px rgba(0, 255, 156, 0.5);
+            box-shadow: 0 0 20px rgba(0,255,156,0.5);
         }
 
         .cursor {
-            display: inline-block;
-            font-weight: bold;
-            color: #00ff9c;
             animation: blink 1s infinite;
         }
 
         @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
+            0%,50%,100% { opacity: 1; }
+            25%,75% { opacity: 0; }
         }
 
-        /* Members Section */
+        /* MEMBERS */
         .members {
             padding: 40px 20px;
         }
@@ -158,183 +154,63 @@
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
         .member:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-10px);
         }
 
         .member img {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
             border: 3px solid #b30000;
         }
 
+        /* FOOTER */
         .footer {
             text-align: center;
             padding: 20px;
             background: #b30000;
             color: white;
-            font-size: 14px;
         }
 
-        /* Responsive */
+        /* RESPONSIVE FIXED */
         @media (max-width: 768px) {
-            .header img { width: 60px; }
+            .header img {
+                width: 60px;
+                position: static;
+                display: block;
+                margin: 0 auto 10px;
+            }
+
             .header h1 { font-size: 24px; }
             .header h2 { font-size: 16px; }
             .banner img { height: 250px; }
         }
-       /* ===============================
-       Enhanced Mobile Responsiveness
-        =============================== */
-
-      /* Flexible Typography */
-      .header h1 {
-          font-size: clamp(22px, 5vw, 34px);
-       }
-
-       .header h2 {
-           font-size: clamp(14px, 3vw, 20px);
-       }
-
-       /* Responsive Logos */
-       .header img {
-            width: clamp(50px, 10vw, 90px);
-       }
-
-       /* Banner Responsiveness */
-       .banner img {
-            height: clamp(200px, 50vw, 420px);
-       }
-
-       /* Quote Carousel */
-       .quote-carousel {
-             font-size: clamp(14px, 2.5vw, 18px);
-             padding: 10px 15px;
-             max-width: 90%;
-       }
-
-        /* Announcement Screen */
-       .screen {
-           padding: clamp(15px, 4vw, 30px);
-           font-size: clamp(14px, 2.5vw, 18px);
-      }
-
-     /* Members Grid */
-      .member-grid {
-           grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      }
-
-      /* Member Images */
-       .member img {
-            width: clamp(80px, 20vw, 110px);
-            height: clamp(80px, 20vw, 110px);
-      }
-
-      /* Footer Text */
-     .footer {
-            font-size: clamp(12px, 2.5vw, 14px);
-      }
-
-      /* Tablets */
-       @media (max-width: 1024px) {
-      .container {
-            width: 95%;
-           }
-       }
-
-       /* Mobile Devices */
-       @media (max-width: 768px) {
-       .container {
-              width: 95%;
-              margin: 10px auto;
-          }
-
-        .header {
-              padding: 30px 10px;
-         }
-
-        .logo-left {
-              left: 10px;
-              top: 10px;
-         }
-
-       .logo-right {
-              right: 10px;
-              top: 10px;
-          }
-
-         .banner img {
-              height: 250px;
-         }
-
-           .announcement-panel {
-              padding: 30px 15px;
-        }
-
-       .members {
-             padding: 30px 15px;
-            }
-      } 
-
-      /* Extra Small Devices */
-        @media (max-width: 480px) {
-          .header img {
-               position: static;
-               display: block;
-               margin: 0 auto 10px auto;
-             }
-
-            .header h1,
-            .header h2 {
-                  text-align: center;
-        }
-
-              .banner img {
-                   height: 200px;
-             }
-
-             .quote-carousel {
-                   font-size: 13px;
-                   bottom: 10px;
-             }
-
-              .member {
-                   padding: 15px;
-             }
-
-           .screen {
-                  min-height: 100px;
-              }
-                 v }        
     </style>
 </head>
+
 <body>
 
 <div class="container">
-    <!-- Header -->
+
+    <!-- HEADER -->
     <div class="header">
-        <img src="images.jpeg" alt="Church Logo" class="logo-left">
-        <img src="images.jpeg" alt="Church Logo" class="logo-right">
+        <img src="images.jpeg" class="logo-left" alt="Logo">
+        <img src="images.jpeg" class="logo-right" alt="Logo">
         <h1>True Faith Church International of Ghana</h1>
         <h2>Youth Association</h2>
     </div>
 
-    <!-- Banner -->
+    <!-- BANNER -->
     <div class="banner">
-        <img src="file_00000000386071f6857c6b16586d46ed.png" alt="Event Banner">
-        <div class="quote-carousel" id="quote">
-            “You are the light of the world.” – Matthew 5:14
-        </div>
+        <img src="file_00000000386071f6857c6b16586d46ed.png" alt="Banner">
+        <div class="quote-carousel" id="quote">Loading quote...</div>
     </div>
 
-    <!-- Announcement Panel -->
+    <!-- ANNOUNCEMENT -->
     <section class="announcement-panel">
         <h2>📢 Youth Announcements</h2>
         <div class="screen">
@@ -342,67 +218,71 @@
         </div>
     </section>
 
-    <!-- Members Section -->
+    <!-- MEMBERS -->
     <div class="members">
         <h2>Executive Members</h2>
         <div class="member-grid">
             <div class="member">
-                <img src="member1.jpg" alt="Organizer">
+                <img src="member1.jpg" alt="">
                 <h4>John Doe</h4>
                 <p>Organizer</p>
             </div>
+
             <div class="member">
-                <img src="member2.jpg" alt="Treasurer">
+                <img src="member2.jpg" alt="">
                 <h4>Jane Smith</h4>
                 <p>Treasurer</p>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <div class="footer">
-        © 2026 True Faith Church International of Ghana – Youth Association. All Rights Reserved.
+        © 2026 True Faith Church International of Ghana – Youth Association
     </div>
+
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Quote Carousel
+
     const quotes = [
-        "“You are the light of the world.” – Matthew 5:14",
-        "“Let your light shine before others.” – Matthew 5:16",
-        "“I can do all things through Christ.” – Philippians 4:13",
-        "“Trust in the Lord with all your heart.” – Proverbs 3:5"
+        "You are the light of the world. – Matthew 5:14",
+        "Let your light shine. – Matthew 5:16",
+        "I can do all things through Christ. – Philippians 4:13",
+        "Trust in the Lord. – Proverbs 3:5"
     ];
+
+    const announcements = [
+        "Welcome to the Youth Association.",
+        "Prayer Meeting every Friday 6PM.",
+        "Bible Study every Wednesday 6:30PM.",
+        "Youth Conference coming soon.",
+        "Stay blessed always."
+    ];
+
+    const quoteEl = document.getElementById("quote");
+    const typewriter = document.getElementById("typewriter");
 
     let qIndex = 0;
-    const quoteElement = document.getElementById("quote");
-
-    setInterval(() => {
-        qIndex = (qIndex + 1) % quotes.length;
-        quoteElement.style.opacity = 0;
-        setTimeout(() => {
-            quoteElement.textContent = quotes[qIndex];
-            quoteElement.style.opacity = 1;
-        }, 500);
-    }, 5000);
-
-    // Typewriter Announcement Panel
-    const announcements = [
-        "Welcome to the True Faith Church International of Ghana Youth Association.",
-        "Youth Prayer Meeting holds every Friday at 6:00 PM.",
-        "Bible Study takes place every Wednesday at 6:30 PM.",
-        "Youth Impact Conference is coming soon. Stay tuned!",
-        "Remember: You are the light of the world – Matthew 5:14-16."
-    ];
-
-    const typewriter = document.getElementById("typewriter");
     let aIndex = 0;
     let charIndex = 0;
     let deleting = false;
 
+    /* QUOTES */
+    setInterval(() => {
+        qIndex = (qIndex + 1) % quotes.length;
+        quoteEl.style.opacity = 0;
+
+        setTimeout(() => {
+            quoteEl.textContent = quotes[qIndex];
+            quoteEl.style.opacity = 1;
+        }, 500);
+    }, 5000);
+
+    /* TYPEWRITER */
     function typeEffect() {
-        const text = announcements[aIndex];
+        let text = announcements[aIndex];
 
         if (!deleting && charIndex < text.length) {
             typewriter.textContent += text.charAt(charIndex++);
@@ -412,40 +292,31 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(typeEffect, 25);
         } else {
             deleting = !deleting;
-            if (!deleting) aIndex = (aIndex + 1) % announcements.length;
+
+            if (!deleting) {
+                aIndex = (aIndex + 1) % announcements.length;
+            }
+
             setTimeout(typeEffect, 1500);
         }
     }
 
     typeEffect();
+
+    /* AUTO READER */
+    function speak(text) {
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.rate = 1;
+        msg.pitch = 1;
+        window.speechSynthesis.speak(msg);
+    }
+
+    setInterval(() => {
+        speak(announcements[aIndex]);
+    }, 7000);
+
 });
-    /* Speak Function */
-function speak(text) {
-    window.speechSynthesis.cancel(); // stop previous speech
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.rate = 1;
-    msg.pitch = 1;
-    msg.volume = 1;
-    window.speechSynthesis.speak(msg);
-}
-
-/* Show + Auto Speak */
-function showAnnouncement() {
-    const text = announcements[aIndex];
-    typewriter.textContent = text;
-
-    // 🔊 AUTO READ HERE
-    speak(text);
-}
-
-/* Cycle announcements */
-setInterval(() => {
-    aIndex = (aIndex + 1) % announcements.length;
-    showAnnouncement();
-}, 7000);
-
-/* Initial load */
-showAnnouncement();
 </script>
 
 </body>
