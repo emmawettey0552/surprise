@@ -419,6 +419,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     typeEffect();
 });
+    /* Speak Function */
+function speak(text) {
+    window.speechSynthesis.cancel(); // stop previous speech
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.rate = 1;
+    msg.pitch = 1;
+    msg.volume = 1;
+    window.speechSynthesis.speak(msg);
+}
+
+/* Show + Auto Speak */
+function showAnnouncement() {
+    const text = announcements[aIndex];
+    typewriter.textContent = text;
+
+    // 🔊 AUTO READ HERE
+    speak(text);
+}
+
+/* Cycle announcements */
+setInterval(() => {
+    aIndex = (aIndex + 1) % announcements.length;
+    showAnnouncement();
+}, 7000);
+
+/* Initial load */
+showAnnouncement();
 </script>
 
 </body>
