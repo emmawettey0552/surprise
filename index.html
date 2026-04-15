@@ -190,6 +190,129 @@
             .header h2 { font-size: 16px; }
             .banner img { height: 250px; }
         }
+       /* ===============================
+       Enhanced Mobile Responsiveness
+        =============================== */
+
+      /* Flexible Typography */
+      .header h1 {
+          font-size: clamp(22px, 5vw, 34px);
+       }
+
+       .header h2 {
+           font-size: clamp(14px, 3vw, 20px);
+       }
+
+       /* Responsive Logos */
+       .header img {
+            width: clamp(50px, 10vw, 90px);
+       }
+
+       /* Banner Responsiveness */
+       .banner img {
+            height: clamp(200px, 50vw, 420px);
+       }
+
+       /* Quote Carousel */
+       .quote-carousel {
+             font-size: clamp(14px, 2.5vw, 18px);
+             padding: 10px 15px;
+             max-width: 90%;
+       }
+
+        /* Announcement Screen */
+       .screen {
+           padding: clamp(15px, 4vw, 30px);
+           font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+     /* Members Grid */
+      .member-grid {
+           grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      /* Member Images */
+       .member img {
+            width: clamp(80px, 20vw, 110px);
+            height: clamp(80px, 20vw, 110px);
+      }
+
+      /* Footer Text */
+     .footer {
+            font-size: clamp(12px, 2.5vw, 14px);
+      }
+
+      /* Tablets */
+       @media (max-width: 1024px) {
+      .container {
+            width: 95%;
+           }
+       }
+
+       /* Mobile Devices */
+       @media (max-width: 768px) {
+       .container {
+              width: 95%;
+              margin: 10px auto;
+          }
+
+        .header {
+              padding: 30px 10px;
+         }
+
+        .logo-left {
+              left: 10px;
+              top: 10px;
+         }
+
+       .logo-right {
+              right: 10px;
+              top: 10px;
+          }
+
+         .banner img {
+              height: 250px;
+         }
+
+           .announcement-panel {
+              padding: 30px 15px;
+        }
+
+       .members {
+             padding: 30px 15px;
+            }
+      } 
+
+      /* Extra Small Devices */
+        @media (max-width: 480px) {
+          .header img {
+               position: static;
+               display: block;
+               margin: 0 auto 10px auto;
+             }
+
+            .header h1,
+            .header h2 {
+                  text-align: center;
+        }
+
+              .banner img {
+                   height: 200px;
+             }
+
+             .quote-carousel {
+                   font-size: 13px;
+                   bottom: 10px;
+             }
+
+              .member {
+                   padding: 15px;
+             }
+
+           .screen {
+                  min-height: 100px;
+              }
+                 v }        
     </style>
 </head>
 <body>
