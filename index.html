@@ -1,323 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>True Faith Church International of Ghana - Youth Association</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oboye Auto Mechanic</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#0f172a;color:#f1f5f9;}
 
-        body {
-            background: #f4f6f9;
-            animation: fadeInBody 1.5s ease-in-out;
-        }
+/* HEADER */
+header{
+  position:sticky;top:0;
+  background:#020617;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav a{margin-left:15px;color:#f1f5f9;text-decoration:none;font-size:0.9rem;}
 
-        @keyframes fadeInBody {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+/* HERO */
+.hero{text-align:center;padding:60px 20px;}
+.hero h2{font-size:2.2rem;color:#38bdf8;}
+.btn{
+  margin-top:20px;
+  display:inline-block;
+  padding:12px 20px;
+  background:#38bdf8;
+  color:#000;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+/* SECTIONS */
+section{padding:40px 20px;}
+h2{text-align:center;margin-bottom:20px;color:#38bdf8;}
 
-        /* HEADER */
-        .header {
-            position: relative;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #b30000, #ff4d4d);
-            color: white;
-        }
+/* PROFILE */
+.profile{text-align:center;}
+.profile img{width:130px;height:130px;border-radius:50%;}
 
-        .header img {
-            width: 90px;
-            position: absolute;
-            top: 20px;
-        }
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
 
-        .logo-left { left: 20px; }
-        .logo-right { right: 20px; }
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+}
 
-        .header h1 {
-            font-size: 34px;
-            font-weight: 700;
-        }
+/* PRICING */
+.price{font-size:1.5rem;color:#38bdf8;margin-top:10px;}
 
-        .header h2 {
-            font-size: 20px;
-            font-weight: 300;
-            margin-top: 10px;
-        }
+/* TESTIMONIAL */
+.testimonial{font-style:italic;}
 
-        /* BANNER */
-        .banner {
-            position: relative;
-            overflow: hidden;
-        }
+/* MAP */
+iframe{width:100%;border-radius:10px;}
 
-        .banner img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-            animation: kenBurns 20s infinite alternate ease-in-out;
-        }
+/* FOOTER */
+footer{text-align:center;padding:20px;background:#020617;}
 
-        @keyframes kenBurns {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
-        }
-
-        .quote-carousel {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.6);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-size: 18px;
-            max-width: 80%;
-            transition: opacity 0.5s ease;
-        }
-
-        /* ANNOUNCEMENT */
-        .announcement-panel {
-            padding: 40px 20px;
-            text-align: center;
-            background: #f9f9f9;
-        }
-
-        .announcement-panel h2 {
-            color: #b30000;
-            margin-bottom: 20px;
-        }
-
-        .screen {
-            background: black;
-            color: #00ff9c;
-            font-family: monospace;
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-            min-height: 120px;
-            box-shadow: 0 0 20px rgba(0,255,156,0.5);
-        }
-
-        .cursor {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%,50%,100% { opacity: 1; }
-            25%,75% { opacity: 0; }
-        }
-
-        /* MEMBERS */
-        .members {
-            padding: 40px 20px;
-        }
-
-        .members h2 {
-            text-align: center;
-            color: #b30000;
-            margin-bottom: 30px;
-        }
-
-        .member-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 25px;
-        }
-
-        .member {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-
-        .member:hover {
-            transform: translateY(-10px);
-        }
-
-        .member img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #b30000;
-        }
-
-        /* FOOTER */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: #b30000;
-            color: white;
-        }
-
-        /* RESPONSIVE FIXED */
-        @media (max-width: 768px) {
-            .header img {
-                width: 60px;
-                position: static;
-                display: block;
-                margin: 0 auto 10px;
-            }
-
-            .header h1 { font-size: 24px; }
-            .header h2 { font-size: 16px; }
-            .banner img { height: 250px; }
-        }
-    </style>
+/* WHATSAPP BUTTON */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:20px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+  <h1>Oboye Auto</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <!-- HEADER -->
-    <div class="header">
-        <img src="images.jpeg" class="logo-left" alt="Logo">
-        <img src="images.jpeg" class="logo-right" alt="Logo">
-        <h1>True Faith Church International of Ghana</h1>
-        <h2>Youth Association</h2>
+<!-- HERO -->
+<section class="hero">
+  <h2>4x4 & Pickup Specialist</h2>
+  <p>Professional Auto Repair You Can Trust</p>
+  <a href="#contact" class="btn">Book Service</a>
+</section>
+
+<!-- PROFILE -->
+<section class="profile">
+  <img src="sen.jpg">
+  <h2>Uncle Oboye</h2>
+  <p>Expert mechanic with over 10 years experience in pickups, 4x4 vehicles and private cars.</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p style="text-align:center;max-width:600px;margin:auto;">
+    Oboye Auto Mechanic is dedicated to providing reliable and affordable vehicle repair services.
+    We specialize in pickup trucks, 4x4 vehicles, and engine diagnostics. Our mission is to keep
+    your vehicle running smoothly with honesty and professionalism.
+  </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card"><h3>Engine Repair</h3><p>Complete diagnostics and engine fixes.</p></div>
+    <div class="card"><h3>4x4 Upgrade</h3><p>Off-road tuning and suspension upgrades.</p></div>
+    <div class="card"><h3>Pickup Service</h3><p>Maintenance for all pickup brands.</p></div>
+    <div class="card"><h3>Mobile Mechanic</h3><p>We come to your location.</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Pricing</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Basic Service</h3>
+      <p>Oil change, inspection</p>
+      <div class="price">GHS 150</div>
     </div>
-
-    <!-- BANNER -->
-    <div class="banner">
-        <img src="file_00000000386071f6857c6b16586d46ed.png" alt="Banner">
-        <div class="quote-carousel" id="quote">Loading quote...</div>
+    <div class="card">
+      <h3>Engine Diagnostics</h3>
+      <p>Full system check</p>
+      <div class="price">GHS 300</div>
     </div>
-
-    <!-- ANNOUNCEMENT -->
-    <section class="announcement-panel">
-        <h2>📢 Youth Announcements</h2>
-        <div class="screen">
-            <span id="typewriter"></span><span class="cursor">|</span>
-        </div>
-    </section>
-
-    <!-- MEMBERS -->
-    <div class="members">
-        <h2>Executive Members</h2>
-        <div class="member-grid">
-            <div class="member">
-                <img src="member1.jpg" alt="">
-                <h4>John Doe</h4>
-                <p>Organizer</p>
-            </div>
-
-            <div class="member">
-                <img src="member2.jpg" alt="">
-                <h4>Jane Smith</h4>
-                <p>Treasurer</p>
-            </div>
-        </div>
+    <div class="card">
+      <h3>Full Repair</h3>
+      <p>Major repairs & parts</p>
+      <div class="price">GHS 500+</div>
     </div>
+  </div>
+</section>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        © 2026 True Faith Church International of Ghana – Youth Association
-    </div>
+<!-- WHY CHOOSE US -->
+<section>
+  <h2>Why Choose Us</h2>
+  <div class="grid">
+    <div class="card">✔ Experienced Mechanic</div>
+    <div class="card">✔ Affordable Pricing</div>
+    <div class="card">✔ Fast Service</div>
+    <div class="card">✔ Trusted by Clients</div>
+  </div>
+</section>
 
-</div>
+<!-- TESTIMONIALS -->
+<section>
+  <h2>Testimonials</h2>
+  <div class="grid">
+    <div class="card testimonial">"Best mechanic in town!"</div>
+    <div class="card testimonial">"Fixed my pickup perfectly."</div>
+    <div class="card testimonial">"Very reliable and affordable."</div>
+  </div>
+</section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+<!-- GALLERY -->
+<section>
+  <h2>Gallery</h2>
+  <div class="grid">
+    <img src="sen.jpg">
+    <img src="sen.jpg">
+    <img src="sen.jpg">
+  </div>
+</section>
 
-    const quotes = [
-        "You are the light of the world. – Matthew 5:14",
-        "Let your light shine. – Matthew 5:16",
-        "I can do all things through Christ. – Philippians 4:13",
-        "Trust in the Lord. – Proverbs 3:5"
-    ];
+<!-- MAP -->
+<section>
+  <h2>Our Location</h2>
+  <iframe src="https://maps.google.com/maps?q=accra&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
 
-    const announcements = [
-        "Welcome to the True Faith International Church Of Ghana Youth Association.",
-        "Prayer Meeting every Friday 6PM.",
-        "Bible Study every Wednesday 6:30PM.",
-        "Youth Conference coming soon.",
-        "Stay blessed always."
-    ];
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p style="text-align:center;">📞 +233 000 000 000</p>
+  <p style="text-align:center;">📧 mechanic@gmail.com</p>
+</section>
 
-    const quoteEl = document.getElementById("quote");
-    const typewriter = document.getElementById("typewriter");
+<footer>
+  <p>© 2026 Oboye Auto Mechanic</p>
+</footer>
 
-    let qIndex = 0;
-    let aIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-    /* QUOTES */
-    setInterval(() => {
-        qIndex = (qIndex + 1) % quotes.length;
-        quoteEl.style.opacity = 0;
-
-        setTimeout(() => {
-            quoteEl.textContent = quotes[qIndex];
-            quoteEl.style.opacity = 1;
-        }, 500);
-    }, 5000);
-
-    /* TYPEWRITER */
-    function typeEffect() {
-        let text = announcements[aIndex];
-
-        if (!deleting && charIndex < text.length) {
-            typewriter.textContent += text.charAt(charIndex++);
-            setTimeout(typeEffect, 50);
-        } else if (deleting && charIndex > 0) {
-            typewriter.textContent = text.substring(0, --charIndex);
-            setTimeout(typeEffect, 25);
-        } else {
-            deleting = !deleting;
-
-            if (!deleting) {
-                aIndex = (aIndex + 1) % announcements.length;
-            }
-
-            setTimeout(typeEffect, 1500);
-        }
-    }
-
-    typeEffect();
-
-    /* AUTO READER */
-    function speak(text) {
-        window.speechSynthesis.cancel();
-        const msg = new SpeechSynthesisUtterance(text);
-        msg.rate = 1;
-        msg.pitch = 1;
-        window.speechSynthesis.speak(msg);
-    }
-
-    setInterval(() => {
-        speak(announcements[aIndex]);
-    }, 7000);
-
-});
-</script>
+<!-- WHATSAPP -->
+<a href="https://wa.me/233000000000" class="whatsapp">💬</a>
 
 </body>
-</html>
+    </html>
