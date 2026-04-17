@@ -29,16 +29,14 @@ body {
     overflow: hidden;
 }
 
-/* HEADER FIX */
 .header {
     position: relative;
     text-align: center;
-    padding: 70px 20px 40px; /* increased top padding */
+    padding: 70px 20px 40px;
     background: linear-gradient(135deg, #b30000, #ff4d4d);
     color: white;
 }
 
-/* LOGOS */
 .header img {
     width: 70px;
     position: absolute;
@@ -48,17 +46,9 @@ body {
 .logo-left { left: 15px; }
 .logo-right { right: 15px; }
 
-/* TEXT PUSHED DOWN */
-.header h1 {
-    font-size: 28px;
-    margin-top: 10px;
-}
+.header h1 { font-size: 28px; margin-top: 10px; }
+.header h2 { font-size: 16px; }
 
-.header h2 {
-    font-size: 16px;
-}
-
-/* MOVER */
 .mover-container {
     overflow: hidden;
     background: #b30000;
@@ -71,16 +61,11 @@ body {
     animation: scrollText 20s linear infinite;
 }
 
-.mover span {
-    padding-left: 100%;
-}
-
 @keyframes scrollText {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
 
-/* BANNER */
 .banner img {
     width: 100%;
     height: 300px;
@@ -98,7 +83,6 @@ body {
     border-radius: 8px;
 }
 
-/* PANEL */
 .announcement-panel {
     padding: 40px 20px;
     text-align: center;
@@ -112,7 +96,6 @@ body {
     font-family: monospace;
 }
 
-/* BUTTON */
 button {
     margin-top: 15px;
     padding: 10px 20px;
@@ -123,7 +106,6 @@ button {
     cursor: pointer;
 }
 
-/* MEMBERS CENTER FIX */
 .members {
     padding: 40px 20px;
     text-align: center;
@@ -149,7 +131,6 @@ button {
     object-fit: cover;
 }
 
-/* FOOTER */
 .footer {
     text-align: center;
     padding: 20px;
@@ -194,21 +175,21 @@ button {
     <button onclick="readAnnouncement()">🔊 Read Announcement</button>
 </section>
 
-<!-- MEMBERS CENTERED -->
+<!-- MEMBERS -->
 <div class="members">
     <h2>Executive Members</h2>
 
     <div class="member-grid">
         <div class="member">
             <img src="member1.jpg">
-            <h4>John Doe</h4>
-            <p>Organizer</p>
+            <h4>Sir John</h4>
+            <p>Leader</p>
         </div>
 
         <div class="member">
             <img src="member2.jpg">
-            <h4>Jane Smith</h4>
-            <p>Treasurer</p>
+            <h4>Mr. Samuel</h4>
+            <p>Leader</p>
         </div>
     </div>
 </div>
@@ -230,48 +211,51 @@ const quotes = [
 ];
 
 let q = 0;
-setInterval(()=>{
+setInterval(() => {
     document.getElementById("quote").textContent = quotes[q];
-    q = (q+1)%quotes.length;
-},3000);
+    q = (q + 1) % quotes.length;
+}, 3000);
 
-/* TYPEWRITER */
-const texts = ["Welcome to True Faith Church Youth",
-"Friday Prayer 6PM",
-"Church activities schedule:
-"On Monday morning from 7:00"," there are prayers. From Monday to Friday, prayer meetings and teachings continue from 7:00 to 9:00. These sessions are led by church leaders, including Sir John a
-",Mr. Samuel and other leaders at Ofankor seven days down branch.",
+/* TYPEWRITER TEXT */
+const texts = [
+"Welcome to True Faith Church Youth.",
+"Friday Prayer 6PM.",
+"Church activities schedule:",
+"On Monday morning from 7:00 there are prayers.",
+"From Monday to Friday, prayer meetings and teachings continue from 7:00 to 9:00.",
+"These sessions are led by Sir John and Mr. Samuel.",
+"On Saturdays there is a church service."
 ];
 
-let i=0, j=0;
+let i = 0, j = 0;
 
-function type(){
-    if(j < texts[i].length){
+function type() {
+    if (j < texts[i].length) {
         document.getElementById("typewriter").textContent += texts[i][j++];
-        setTimeout(type,50);
+        setTimeout(type, 50);
     } else {
-        setTimeout(()=>{
-            document.getElementById("typewriter").textContent="";
-            j=0;
-            i=(i+1)%texts.length;
+        setTimeout(() => {
+            document.getElementById("typewriter").textContent = "";
+            j = 0;
+            i = (i + 1) % texts.length;
             type();
-        },2000);
+        }, 2000);
     }
 }
 type();
 
-/* MOVER */
+/* MOVER TEXT */
 const mover = [
 "Welcome to True Faith Church Youth",
 "Friday Prayer 6PM",
-"Church activities schedule:
-"On Monday morning from 7:00"," there are prayers. From Monday to Friday, prayer meetings and teachings continue from 7:00 to 9:00. These sessions are led by church leaders, including Sir John , Mr. Samuel and other leaders at Ofankor seven days down branch.",
+"Church activities schedule: Monday to Friday 7:00 - 9:00 prayer meetings led by Sir John and Mr. Samuel",
+"Saturday church service"
 ];
 
 document.getElementById("mover-text").textContent = mover.join(" | ");
 
-/* FIXED VOICE READER (reads EXACT panel text) */
-function readAnnouncement(){
+/* VOICE READER */
+function readAnnouncement() {
     speechSynthesis.cancel();
 
     const panelText = document.getElementById("typewriter").textContent;
