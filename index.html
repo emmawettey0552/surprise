@@ -17,14 +17,9 @@
 
 body {
     background: #f4f6f9;
-    animation: fadeInBody 1.5s ease-in-out;
 }
 
-@keyframes fadeInBody {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
+/* CONTAINER */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -44,37 +39,35 @@ body {
     color: white;
 }
 
+/* LOGOS FIXED */
 .header img {
-    width: clamp(50px, 10vw, 90px);
+    width: 70px;
     position: absolute;
-    top: 20px;
+    top: 15px;
 }
 
-.logo-left { left: 20px; }
-.logo-right { right: 20px; }
+.logo-left { left: 15px; }
+.logo-right { right: 15px; }
 
 .header h1 {
-    font-size: clamp(22px, 5vw, 34px);
+    font-size: 28px;
 }
 
 .header h2 {
-    font-size: clamp(14px, 3vw, 20px);
+    font-size: 16px;
 }
 
 /* MOVER */
 .mover-container {
-    width: 100%;
     overflow: hidden;
     background: #b30000;
     color: #fff;
     padding: 10px 0;
-    border-top: 3px solid gold;
-    border-bottom: 3px solid gold;
 }
 
 .mover {
     white-space: nowrap;
-    animation: scrollText 25s linear infinite;
+    animation: scrollText 20s linear infinite;
 }
 
 .mover span {
@@ -87,13 +80,9 @@ body {
 }
 
 /* BANNER */
-.banner {
-    position: relative;
-}
-
 .banner img {
     width: 100%;
-    height: clamp(200px, 50vw, 420px);
+    height: 300px;
     object-fit: cover;
 }
 
@@ -104,11 +93,11 @@ body {
     transform: translateX(-50%);
     background: rgba(0,0,0,0.6);
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 8px;
 }
 
-/* ANNOUNCEMENT PANEL */
+/* PANEL */
 .announcement-panel {
     padding: 40px 20px;
     text-align: center;
@@ -119,9 +108,18 @@ body {
     color: #00ff9c;
     padding: 20px;
     border-radius: 10px;
-    max-width: 800px;
-    margin: auto;
     font-family: monospace;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #b30000;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
 /* MEMBERS */
@@ -133,10 +131,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
-}
-
-.member {
-    text-align: center;
 }
 
 .member img {
@@ -151,15 +145,6 @@ body {
     padding: 20px;
     background: #b30000;
     color: white;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .header img {
-        position: static;
-        display: block;
-        margin: auto;
-    }
 }
 </style>
 </head>
@@ -195,6 +180,9 @@ body {
     <div class="screen">
         <span id="typewriter"></span><span>|</span>
     </div>
+
+    <!-- VOICE BUTTON -->
+    <button onclick="readAnnouncement()">🔊 Read Announcement</button>
 </section>
 
 <!-- MEMBERS -->
@@ -222,7 +210,6 @@ body {
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
 /* QUOTES */
 const quotes = [
@@ -245,6 +232,7 @@ const texts = [
 ];
 
 let i=0, j=0;
+
 function type(){
     if(j < texts[i].length){
         document.getElementById("typewriter").textContent += texts[i][j++];
@@ -266,9 +254,29 @@ const mover = [
 "Friday Prayer 6PM",
 "Conference Coming Soon"
 ];
+
 document.getElementById("mover-text").textContent = mover.join(" | ");
 
-});
+/* VOICE READER FIX */
+function readAnnouncement(){
+
+    // Stop previous speech
+    speechSynthesis.cancel();
+
+    let announcement = document.getElementById("typewriter").textContent;
+    let moverText = mover.join(", ");
+
+    let fullText = announcement + ". " + moverText;
+
+    let speech = new SpeechSynthesisUtterance(fullText);
+
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    speechSynthesis.speak(speech);
+}
+
 </script>
 
 </body>
