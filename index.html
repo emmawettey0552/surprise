@@ -3,140 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>True Faith Church International of Ghana - Youth Association</title>
+<title>True Faith Church Youth</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-body {
-    background: #f4f6f9;
+body{
+    background:#f4f6f9;
+    overflow-x:hidden; /* 🔥 FIX OVERFLOW */
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
+.container{
+    width:100%;
+    max-width:100%;
+    margin:auto;
+    background:#fff;
 }
 
-.header {
-    position: relative;
-    text-align: center;
-    padding: 70px 20px 40px;
-    background: linear-gradient(135deg, #b30000, #ff4d4d);
-    color: white;
+/* HEADER */
+.header{
+    text-align:center;
+    padding:40px 15px;
+    background:linear-gradient(135deg,#b30000,#ff4d4d);
+    color:white;
 }
 
-.header img {
-    width: 70px;
-    position: absolute;
-    top: 10px;
+.header h1{
+    font-size:18px;
 }
 
-.logo-left { left: 15px; }
-.logo-right { right: 15px; }
-
-.header h1 { font-size: 28px; margin-top: 10px; }
-.header h2 { font-size: 16px; }
-
-.mover-container {
-    overflow: hidden;
-    background: #b30000;
-    color: #fff;
-    padding: 10px 0;
+.header h2{
+    font-size:13px;
 }
 
-.mover {
-    white-space: nowrap;
-    animation: scrollText 20s linear infinite;
+/* MOVER */
+.mover-container{
+    overflow:hidden;
+    background:#800000;
+    color:white;
 }
 
-@keyframes scrollText {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+.mover{
+    display:inline-block;
+    white-space:nowrap;
+    padding:10px;
+    animation:scroll 20s linear infinite;
 }
 
-.banner img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+@keyframes scroll{
+    from{transform:translateX(100%)}
+    to{transform:translateX(-100%)}
 }
 
-.quote-carousel {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 10px;
-    border-radius: 8px;
+/* 🔥 BANNER SLIDER */
+.banner{
+    position:relative;
+    width:100%;
+    height:220px;
+    overflow:hidden;
 }
 
-.announcement-panel {
-    padding: 40px 20px;
-    text-align: center;
+.slides{
+    display:flex;
+    width:300%;
+    height:100%;
+    animation:slide 12s infinite;
 }
 
-.screen {
-    background: black;
-    color: #00ff9c;
-    padding: 20px;
-    border-radius: 10px;
-    font-family: monospace;
+.slides img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    background: #b30000;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
+@keyframes slide{
+    0%{transform:translateX(0)}
+    33%{transform:translateX(0)}
+    36%{transform:translateX(-100%)}
+    66%{transform:translateX(-100%)}
+    69%{transform:translateX(-200%)}
+    100%{transform:translateX(-200%)}
 }
 
-.members {
-    padding: 40px 20px;
-    text-align: center;
+.quote-carousel{
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.7);
+    color:white;
+    padding:6px 10px;
+    border-radius:6px;
+    font-size:12px;
 }
 
-.member-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
+/* PANEL */
+.announcement-panel{
+    padding:20px;
+    text-align:center;
 }
 
-.member {
-    text-align: center;
-    width: 150px;
+.screen{
+    background:black;
+    color:#00ff9c;
+    padding:10px;
+    border-radius:8px;
+    font-family:monospace;
+    min-height:50px;
 }
 
-.member img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
+button{
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    background:#b30000;
+    color:white;
+    border-radius:6px;
 }
 
-.footer {
-    text-align: center;
-    padding: 20px;
-    background: #b30000;
-    color: white;
+/* BIBLE */
+.bible-section{
+    padding:20px;
+    text-align:center;
 }
+
+.verse-box{
+    background:#fff3f3;
+    border-left:5px solid #b30000;
+    padding:10px;
+    margin:10px auto;
+    border-radius:8px;
+    max-width:95%;
+}
+
+.verse{
+    font-style:italic;
+}
+
+/* MEMBERS */
+.members{
+    padding:20px;
+    text-align:center;
+}
+
+.member-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.member{
+    width:120px;
+}
+
+.member img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+}
+
+/* FOOTER */
+.footer{
+    background:#b30000;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+
 </style>
 </head>
 
@@ -144,59 +186,59 @@ button {
 
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
-    <img src="images.jpeg" class="logo-left">
-    <img src="images.jpeg" class="logo-right">
-    <h1>True Faith Church International of Ghana</h1>
+    <h1>True Faith Church International</h1>
     <h2>Youth Association</h2>
 </div>
 
-<!-- MOVER -->
 <div class="mover-container">
-    <div class="mover">
-        <span id="mover-text"></span>
-    </div>
+    <div class="mover" id="mover-text"></div>
 </div>
 
-<!-- BANNER -->
+<!-- 🔥 SLIDER -->
 <div class="banner">
-    <img src="file_00000000386071f6857c6b16586d46ed.png">
+    <div class="slides">
+        <img src="banner1.jpg">
+        <img src="banner2.jpg">
+        <img src="banner3.jpg">
+    </div>
     <div class="quote-carousel" id="quote"></div>
 </div>
 
-<!-- PANEL -->
 <section class="announcement-panel">
-    <h2>📢 Youth Announcements</h2>
-    <div class="screen">
-        <span id="typewriter"></span><span>|</span>
-    </div>
-
-    <button onclick="readAnnouncement()">🔊 Read Announcement</button>
+    <h3>📢 Announcements</h3>
+    <div class="screen"><span id="typewriter"></span></div>
+    <button onclick="readAnnouncement()">🔊 Read</button>
 </section>
 
-<!-- MEMBERS -->
-<div class="members">
-    <h2>Executive Members</h2>
+<section class="bible-section">
+    <h3>📖 Bible Insight</h3>
 
+    <div class="verse-box">
+        <h4 id="verse-title"></h4>
+        <p class="verse" id="verse-text"></p>
+        <p id="verse-explain"></p>
+    </div>
+
+    <button onclick="readVerse()">🔊 Read Verse</button>
+</section>
+
+<div class="members">
+    <h3>Executive Members</h3>
     <div class="member-grid">
         <div class="member">
             <img src="member1.jpg">
-            <h4>Sir John</h4>
-            <p>Leader</p>
+            <p>Sir John</p>
         </div>
-
         <div class="member">
             <img src="member2.jpg">
-            <h4>Mr. Samuel</h4>
-            <p>Leader</p>
+            <p>Mr. Samuel</p>
         </div>
     </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-© 2026 True Faith Church International of Ghana – Youth Association
+© 2026 True Faith Youth
 </div>
 
 </div>
@@ -204,75 +246,90 @@ button {
 <script>
 
 /* QUOTES */
-const quotes = [
-"You are the light of the world – Matthew 5:14",
-"Let your light shine – Matthew 5:16",
-"I can do all things – Philippians 4:13"
+const quotes=[
+"You are the light of the world",
+"Let your light shine",
+"I can do all things"
 ];
 
-let q = 0;
-setInterval(() => {
-    document.getElementById("quote").textContent = quotes[q];
-    q = (q + 1) % quotes.length;
-}, 3000);
+let q=0;
+setInterval(()=>{
+    document.getElementById("quote").textContent=quotes[q];
+    q=(q+1)%quotes.length;
+},3000);
 
 /* TYPEWRITER */
-const texts = [
-"Welcome to True Faith Church Youth.",
-"Friday Prayer 6PM.",
-"Church activities schedule:",
-"On Monday morning from 7:00 there are prayers.",
-"From Monday to Friday, prayer meetings and teachings continue from 7:00 to 9:00.",
-"These sessions are led by Sir John and Mr. Samuel.",
-"On Saturdays there is a church service."
+const texts=[
+"Welcome to Church Youth",
+"Friday Prayer 6PM",
+"Stay Blessed"
 ];
 
-let i = 0, j = 0;
-
-function type() {
-    if (j < texts[i].length) {
-        document.getElementById("typewriter").textContent += texts[i][j++];
-        setTimeout(type, 50);
-    } else {
-        setTimeout(() => {
-            document.getElementById("typewriter").textContent = "";
-            j = 0;
-            i = (i + 1) % texts.length;
+let i=0,j=0;
+function type(){
+    const el=document.getElementById("typewriter");
+    if(j<texts[i].length){
+        el.textContent+=texts[i][j++];
+        setTimeout(type,40);
+    }else{
+        setTimeout(()=>{
+            el.textContent="";
+            j=0;
+            i=(i+1)%texts.length;
             type();
-        }, 2000);
+        },2000);
     }
 }
 type();
 
 /* MOVER */
-const mover = [
-"Welcome to True Faith Church Youth.",
-"Friday Prayer 6PM.",
-"Church activities schedule: Monday–Friday 7:00–9:00 prayer meetings led by Sir John and Mr. Samuel.",
-"Saturday church service.",
-"You are the light of the world – Matthew 5:14",
-"Let your light shine – Matthew 5:16",
-"I can do all things – Philippians 4:13"
+document.getElementById("mover-text").textContent=
+"Welcome ✦ Prayer ✦ Youth ✦ Faith ✦ Jesus";
+
+/* BIBLE */
+const bible=[
+{
+title:"1 Peter 4:7",
+text:"Be alert and sober so you can pray.",
+explain:"Stay focused and prayerful."
+},
+{
+title:"2 Peter 3:17",
+text:"Be on your guard.",
+explain:"Protect your faith."
+}
 ];
 
-document.getElementById("mover-text").textContent = mover.join(" | ");
+let b=0;
+function showVerse(){
+    document.getElementById("verse-title").textContent=bible[b].title;
+    document.getElementById("verse-text").textContent=bible[b].text;
+    document.getElementById("verse-explain").textContent=bible[b].explain;
+    b=(b+1)%bible.length;
+}
+setInterval(showVerse,5000);
+showVerse();
 
-/* VOICE READER */
-function readAnnouncement() {
+/* VOICE */
+function readAnnouncement(){
     speechSynthesis.cancel();
+    const text=document.getElementById("typewriter").textContent;
+    const speech=new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speech);
+}
 
-    const panelText = document.getElementById("typewriter").textContent;
-    const moverText = mover.join(", ");
+function readVerse(){
+    speechSynthesis.cancel();
+    const full=
+    document.getElementById("verse-title").textContent+" "+
+    document.getElementById("verse-text").textContent+" "+
+    document.getElementById("verse-explain").textContent;
 
-    const fullText = panelText + ". " + moverText;
-
-    const speech = new SpeechSynthesisUtterance(fullText);
-    speech.rate = 0.9;
-
+    const speech=new SpeechSynthesisUtterance(full);
     speechSynthesis.speak(speech);
 }
 
 </script>
 
 </body>
-            </html>
+    </html>
