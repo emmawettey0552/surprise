@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>True Faith Church Youth</title>
+<title>True Faith Church Youth Association</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -18,7 +17,7 @@
 
 body{
     background:#f4f6f9;
-    overflow-x:hidden; /* 🔥 FIX OVERFLOW */
+    overflow-x:hidden;
 }
 
 .container{
@@ -30,19 +29,24 @@ body{
 
 /* HEADER */
 .header{
+    position:relative;
     text-align:center;
-    padding:40px 15px;
+    padding:60px 15px 30px;
     background:linear-gradient(135deg,#b30000,#ff4d4d);
     color:white;
 }
 
-.header h1{
-    font-size:18px;
+.header img{
+    width:60px;
+    position:absolute;
+    top:10px;
 }
 
-.header h2{
-    font-size:13px;
-}
+.logo-left{left:10px;}
+.logo-right{right:10px;}
+
+.header h1{font-size:18px;}
+.header h2{font-size:13px;}
 
 /* MOVER */
 .mover-container{
@@ -52,7 +56,6 @@ body{
 }
 
 .mover{
-    display:inline-block;
     white-space:nowrap;
     padding:10px;
     animation:scroll 20s linear infinite;
@@ -63,7 +66,7 @@ body{
     to{transform:translateX(-100%)}
 }
 
-/* 🔥 BANNER SLIDER */
+/* SLIDER */
 .banner{
     position:relative;
     width:100%;
@@ -85,24 +88,24 @@ body{
 }
 
 @keyframes slide{
-    0%{transform:translateX(0)}
-    33%{transform:translateX(0)}
-    36%{transform:translateX(-100%)}
-    66%{transform:translateX(-100%)}
-    69%{transform:translateX(-200%)}
-    100%{transform:translateX(-200%)}
+    0%,30%{transform:translateX(0);}
+    33%,63%{transform:translateX(-100%);}
+    66%,100%{transform:translateX(-200%);}
 }
 
+/* QUOTE */
 .quote-carousel{
     position:absolute;
     bottom:10px;
     left:50%;
     transform:translateX(-50%);
     background:rgba(0,0,0,0.7);
-    color:white;
-    padding:6px 10px;
+    color:#fff;
+    padding:8px 10px;
     border-radius:6px;
     font-size:12px;
+    text-align:center;
+    max-width:90%;
 }
 
 /* PANEL */
@@ -116,8 +119,8 @@ body{
     color:#00ff9c;
     padding:10px;
     border-radius:8px;
-    font-family:monospace;
     min-height:50px;
+    font-family:monospace;
 }
 
 button{
@@ -127,6 +130,7 @@ button{
     background:#b30000;
     color:white;
     border-radius:6px;
+    cursor:pointer;
 }
 
 /* BIBLE */
@@ -144,9 +148,7 @@ button{
     max-width:95%;
 }
 
-.verse{
-    font-style:italic;
-}
+.verse{font-style:italic;}
 
 /* MEMBERS */
 .members{
@@ -178,7 +180,6 @@ button{
     text-align:center;
     padding:10px;
 }
-
 </style>
 </head>
 
@@ -186,31 +187,39 @@ button{
 
 <div class="container">
 
+<!-- HEADER -->
 <div class="header">
+    <img src="images.jpeg" class="logo-left">
+    <img src="images.jpeg" class="logo-right">
     <h1>True Faith Church International</h1>
     <h2>Youth Association</h2>
 </div>
 
+<!-- MOVER -->
 <div class="mover-container">
     <div class="mover" id="mover-text"></div>
 </div>
 
-<!-- 🔥 SLIDER -->
+<!-- SLIDER -->
 <div class="banner">
     <div class="slides">
-        <img src="banner1.jpg">
-        <img src="banner2.jpg">
-        <img src="banner3.jpg">
+        <img src="file_00000000386071f6857c6b16586d46ed.png">
+        <img src="file_00000000386071f6857c6b16586d46ed.png">
+        <img src="file_00000000386071f6857c6b16586d46ed.png">
     </div>
     <div class="quote-carousel" id="quote"></div>
 </div>
 
+<!-- PANEL -->
 <section class="announcement-panel">
     <h3>📢 Announcements</h3>
     <div class="screen"><span id="typewriter"></span></div>
-    <button onclick="readAnnouncement()">🔊 Read</button>
+
+    <button onclick="readAnnouncement()">🔊 Read Announcement</button>
+    <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
 </section>
 
+<!-- BIBLE -->
 <section class="bible-section">
     <h3>📖 Bible Insight</h3>
 
@@ -220,11 +229,13 @@ button{
         <p id="verse-explain"></p>
     </div>
 
-    <button onclick="readVerse()">🔊 Read Verse</button>
+    <button onclick="readVerse()">🔊 Read Bible</button>
 </section>
 
+<!-- MEMBERS -->
 <div class="members">
     <h3>Executive Members</h3>
+
     <div class="member-grid">
         <div class="member">
             <img src="member1.jpg">
@@ -238,18 +249,23 @@ button{
 </div>
 
 <div class="footer">
-© 2026 True Faith Youth
+© 2026 True Faith Church Youth
 </div>
 
 </div>
+
+<!-- AUDIO -->
+<audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 
-/* QUOTES */
+/* QUOTES WITH FULL REFERENCES */
 const quotes=[
-"You are the light of the world",
-"Let your light shine",
-"I can do all things"
+"Matthew 5:14 – You are the light of the world.",
+"Matthew 5:16 – Let your light shine before men.",
+"Philippians 4:13 – I can do all things through Christ."
 ];
 
 let q=0;
@@ -260,14 +276,14 @@ setInterval(()=>{
 
 /* TYPEWRITER */
 const texts=[
-"Welcome to Church Youth",
-"Friday Prayer 6PM",
-"Stay Blessed"
+"Welcome to True Faith Youth.",
+"Friday Prayer 6PM.",
+"Stay connected and prayerful."
 ];
 
 let i=0,j=0;
 function type(){
-    const el=document.getElementById("typewriter");
+    let el=document.getElementById("typewriter");
     if(j<texts[i].length){
         el.textContent+=texts[i][j++];
         setTimeout(type,40);
@@ -290,13 +306,13 @@ document.getElementById("mover-text").textContent=
 const bible=[
 {
 title:"1 Peter 4:7",
-text:"Be alert and sober so you can pray.",
-explain:"Stay focused and prayerful."
+text:"The end of all things is near. Be alert and sober so that you may pray.",
+explain:"Stay focused, disciplined, and prayerful."
 },
 {
 title:"2 Peter 3:17",
-text:"Be on your guard.",
-explain:"Protect your faith."
+text:"Be on your guard so you are not carried away by error.",
+explain:"Protect your faith and stay grounded."
 }
 ];
 
@@ -310,22 +326,39 @@ function showVerse(){
 setInterval(showVerse,5000);
 showVerse();
 
+/* MUSIC BUTTON */
+const music=document.getElementById("bg-music");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
 /* VOICE */
 function readAnnouncement(){
     speechSynthesis.cancel();
-    const text=document.getElementById("typewriter").textContent;
-    const speech=new SpeechSynthesisUtterance(text);
+    music.pause();
+
+    let text=document.getElementById("typewriter").textContent;
+    let speech=new SpeechSynthesisUtterance(text);
+    speech.rate=0.9;
     speechSynthesis.speak(speech);
 }
 
 function readVerse(){
     speechSynthesis.cancel();
-    const full=
+    music.pause();
+
+    let full=
     document.getElementById("verse-title").textContent+" "+
     document.getElementById("verse-text").textContent+" "+
     document.getElementById("verse-explain").textContent;
 
-    const speech=new SpeechSynthesisUtterance(full);
+    let speech=new SpeechSynthesisUtterance(full);
+    speech.rate=0.9;
     speechSynthesis.speak(speech);
 }
 
