@@ -3,210 +3,321 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>True Faith Church Youth Association</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0b0f1a;color:white;overflow-x:hidden;}
-
-/* NIGHT ANIMATION BACKGROUND */
-to{opacity:0.8;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-.container{width:100%;max-width:100%;margin:auto;background:transparent;}
+body{
+    background:#f4f6f9;
+    overflow-x:hidden;
+}
 
-.header{position:relative;text-align:center;padding:60px 15px 30px;background:linear-gradient(135deg,#b30000,#ff4d4d);}
-.header img{width:60px;position:absolute;top:10px;}
-.logo-left{left:10px;}
-.logo-right{right:10px;}
-.header h1{font-size:18px;}
-.header h2{font-size:13px;}
+.container{
+    width:100%;
+    max-width:100%;
+    margin:auto;
+    background:#fff;
+}
 
-.mover-container{overflow:hidden;background:#800000;}
-.mover{white-space:nowrap;padding:10px;animation:scroll 20s linear infinite;}
-@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-
-/* FIXED SLIDER (NO BLANK) */
-.banner{position:relative;width:100%;height:220px;overflow:hidden;}
-.slides{display:flex;width:300%;height:100%;transition:transform 1s ease-in-out;}
-.slides img{width:100%;height:100%;object-fit:cover;}
-
-.quote-carousel{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);padding:8px;border-radius:6px;font-size:12px;}
-
-.announcement-panel{text-align:center;padding:20px;}
-.screen{background:black;color:#00ff9c;padding:10px;border-radius:8px;min-height:50px;font-family:monospace;}
-
-button{margin-top:10px;padding:10px 18px;border:none;background:#ff4d4d;color:white;border-radius:8px;cursor:pointer;transition:0.3s;}
-button:hover{transform:scale(1.1);box-shadow:0 0 10px #ff4d4d;}
-
-.bible-section{text-align:center;padding:20px;}
-.verse-box{background:#1a1f2e;padding:10px;margin:10px auto;border-radius:8px;max-width:95%;}
-
-.members{text-align:center;padding:20px;}
-.member-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
-.member img{width:90px;height:90px;border-radius:50%;transition:0.3s;}
-.member img:hover{transform:rotate(5deg) scale(1.1);}
-
-.footer{background:#b30000;text-align:center;padding:10px;}
-/* LIVE INDICATOR */
-.live-indicator{color:red;font-weight:700;margin-left:8px;animation:blink 1s infinite;}
-@keyframes blink{50%{opacity:0;} }
-</style></head><body><!-- PRELOADER --><div id="preloader">
-    <div class="loader">
-        <img src="images.jpeg" class="logoPulse">
-        <div class="spinner"></div>
-        <p>Loading Church...</p>
-    </div>
-</div><style>
+/* PRELOADER */
 #preloader{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg,#b30000,#1a0000);
+    inset:0;
+    background:linear-gradient(135deg,#b30000,#7a0000);
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
     z-index:9999;
 }
 
-.loader{
-    text-align:center;
-    color:white;
-}
-
-.logoPulse{
+#preloader img{
     width:90px;
     border-radius:12px;
     animation:pulse 1.5s infinite;
-    box-shadow:0 0 20px rgba(255,255,255,0.4);
+    box-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
-.spinner{
+.loader-spinner{
     width:45px;
     height:45px;
-    margin:15px auto;
-    border:4px solid rgba(255,255,255,0.2);
-    border-top:4px solid white;
+    margin-top:15px;
+    border:4px solid rgba(255,255,255,0.3);
+    border-top:4px solid #fff;
     border-radius:50%;
     animation:spin 1s linear infinite;
 }
 
 @keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
 }
 
 @keyframes pulse{
-    0%{transform:scale(1);opacity:1;}
-    50%{transform:scale(1.1);opacity:0.8;}
-    100%{transform:scale(1);opacity:1;}
+    0%{transform:scale(1)}
+    50%{transform:scale(1.1)}
+    100%{transform:scale(1)}
 }
-</style><script>
-window.addEventListener('load',()=>{
-    const preloader=document.getElementById('preloader');
-    preloader.style.opacity='0';
-    preloader.style.transition='0.8s ease';
-    setTimeout(()=>preloader.style.display='none',800);
-});
-</script><div class="container"><div class="header">
-<img src="images.jpeg" class="logo-left">
-<img src="images.jpeg" class="logo-right">
-<h1>True Faith Church International</h1>
-<h2>Youth Association</h2>
-</div><div class="mover-container"><div class="mover" id="mover-text"></div></div><div class="banner">
-<div class="slides" id="slider">
-<img src="file_00000000386071f6857c6b16586d46ed.png">
-<img src="file_00000000386071f6857c6b16586d46ed.png">
-<img src="file_00000000386071f6857c6b16586d46ed.png">
-</div>
-<div class="quote-carousel" id="quote"></div>
-</div><section class="announcement-panel">
-<h3>📢 Announcements</h3>
-<div class="screen"><span id="typewriter"></span></div>
-<button onclick="readAnnouncement()">🔊 Read Announcement</button>
-<button onclick="toggleMusic()">🎵 Play / Pause Music</button>
-</section><section class="bible-section">
-<h3>📖 Bible Insight</h3>
-<div class="verse-box">
-<h4 id="verse-title"></h4>
-<p id="verse-text"></p>
-<p id="verse-explain"></p>
-</div>
-<button onclick="readVerse()">🔊 Read Bible</button>
-</section><div class="members">
-<h3>Executive Members</h3>
-<div class="member-grid">
-<div class="member"><img src="member1.jpg"><p>Sir John</p></div>
-<div class="member"><img src="member2.jpg"><p>Mr. Samuel</p></div>
-</div>
-</div><section class="live-stream" style="text-align:center;padding:20px;">
-<h3>📡 Live Church Streaming <span class="live-indicator">● LIVE NOW</span></h3>
-<p>Join our live services below:</p>
-<video id="liveVideo" autoplay playsinline style="width:100%;height:220px;border-radius:10px;background:black;"></video>
-<p style="font-size:12px;opacity:0.8;">📡 Camera Live Stream (Host Mode Only)</p>
-<button onclick="startCamera()">🎥 Start Camera Stream</button>
-<p style="font-size:11px;color:yellow;">Note: Real multi-user live streaming needs a server (WebRTC backend)</p>
-</section><div class="footer">© 2026 True Faith Church Youth Association</div>
-</div><audio id="bg-music" loop>
-<source src="Honhom_Nwom(48k).m4a" type="audio/mp4">
+
+/* HEADER */
+.header{
+    position:relative;
+    text-align:center;
+    padding:60px 15px 30px;
+    background:linear-gradient(135deg,#b30000,#ff4d4d);
+    color:white;
+}
+
+.header img{
+    width:60px;
+    position:absolute;
+    top:10px;
+}
+
+.logo-left{left:10px;}
+.logo-right{right:10px;}
+
+.header h1{font-size:18px;}
+.header h2{font-size:13px;}
+
+/* MOVER */
+.mover-container{
+    overflow:hidden;
+    background:#800000;
+    color:white;
+}
+
+.mover{
+    white-space:nowrap;
+    padding:10px;
+    animation:scroll 20s linear infinite;
+}
+
+@keyframes scroll{
+    from{transform:translateX(100%)}
+    to{transform:translateX(-100%)}
+}
+
+/* SLIDER */
+.banner{
+    position:relative;
+    width:100%;
+    height:220px;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    width:300%;
+    height:100%;
+    animation:slide 12s infinite;
+}
+
+.slides img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@keyframes slide{
+    0%,30%{transform:translateX(0)}
+    33%,63%{transform:translateX(-100%)}
+    66%,100%{transform:translateX(-200%)}
+}
+
+/* PANEL */
+.announcement-panel{
+    padding:20px;
+    text-align:center;
+}
+
+.screen{
+    background:black;
+    color:#00ff9c;
+    padding:10px;
+    border-radius:8px;
+    min-height:50px;
+    font-family:monospace;
+}
+
+button{
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    background:#b30000;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+/* BIBLE */
+.bible-section{
+    padding:20px;
+    text-align:center;
+}
+
+.verse-box{
+    background:#fff3f3;
+    border-left:5px solid #b30000;
+    padding:10px;
+    margin:10px auto;
+    border-radius:8px;
+    max-width:95%;
+}
+
+.verse{font-style:italic;}
+
+/* MEMBERS */
+.members{
+    padding:20px;
+    text-align:center;
+}
+
+.member-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.member{
+    width:120px;
+}
+
+.member img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+}
+
+/* FOOTER */
+.footer{
+    background:#b30000;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+</style></head><body><!-- PRELOADER --><div id="preloader">
+    <img src="images.jpeg" alt="logo">
+    <div class="loader-spinner"></div>
+</div><div class="container"><!-- HEADER --><div class="header">
+    <img src="images.jpeg" class="logo-left">
+    <img src="images.jpeg" class="logo-right">
+    <h1>True Faith Church International</h1>
+    <h2>Youth Association</h2>
+</div><!-- MOVER --><div class="mover-container">
+    <div class="mover" id="mover-text"></div>
+</div><!-- SLIDER --><div class="banner">
+    <div class="slides">
+        <img src="file_00000000386071f6857c6b16586d46ed.png">
+        <img src="file_00000000386071f6857c6b16586d46ed.png">
+        <img src="file_00000000386071f6857c6b16586d46ed.png">
+    </div>
+</div><!-- PANEL --><section class="announcement-panel">
+    <h3>📢 Announcements</h3>
+    <div class="screen"><span id="typewriter"></span></div>
+    <button onclick="readAnnouncement()">🔊 Read Announcement</button>
+    <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
+</section><!-- BIBLE --><section class="bible-section">
+    <h3>📖 Bible Insight</h3>
+    <div class="verse-box">
+        <h4 id="verse-title"></h4>
+        <p class="verse" id="verse-text"></p>
+        <p id="verse-explain"></p>
+    </div>
+    <button onclick="readVerse()">🔊 Read Bible</button>
+</section><!-- MEMBERS --><div class="members">
+    <h3>Executive Members</h3>
+    <div class="member-grid">
+        <div class="member">
+            <img src="member1.jpg">
+            <p>Sir John</p>
+        </div>
+        <div class="member">
+            <img src="member2.jpg">
+            <p>Mr. Samuel</p>
+        </div>
+    </div>
+</div><div class="footer">© 2026 True Faith Church Youth Association</div></div><!-- AUDIO --><audio id="bg-music" loop>
+    <source src="Honhom_Nwom(48k).m4a" type="audio/mp4">
 </audio><script>
 
-/* HUMAN VOICE IMPROVEMENT */
-function speak(text){
-    speechSynthesis.cancel();
-    const speech=new SpeechSynthesisUtterance(text);
-    speech.rate=0.85;
-    speech.pitch=1;
-    speech.volume=1;
+// PRELOADER REMOVE (FAST 4s)
+window.addEventListener('load',()=>{
+    setTimeout(()=>{
+        document.getElementById('preloader').style.display='none';
+    },4000);
+});
 
-    let voices=speechSynthesis.getVoices();
-    speech.voice=voices.find(v=>v.name.includes("Google")) || voices[0];
-
-    speechSynthesis.speak(speech);
-}
-
-function readAnnouncement(){
-    let text=document.getElementById("typewriter").textContent;
-    speak(text);
-}
-
-function readVerse(){
-    let full=
-    document.getElementById("verse-title").textContent+" "+
-    document.getElementById("verse-text").textContent+" "+
-    document.getElementById("verse-explain").textContent;
-    speak(full);
-}
-
-/* MUSIC FIX */
+// MUSIC FIX
 const music=document.getElementById("bg-music");
 function toggleMusic(){
     if(music.paused){
-        const playPromise = music.play();
-        if(playPromise !== undefined){
-            playPromise.catch(()=>{
-                // auto retry silently (no alert)
-                setTimeout(()=>music.play(),300);
-            });
-        }
+        music.play().catch(()=>{});
     }else{
-        music.pause();
-    }
-}else{
         music.pause();
     }
 }
 
-/* IMPROVED SMOOTH SLIDER (NO BLANK + CROSS FADE FEEL) */
-let index=0;
-const slides=document.getElementById("slider");
-setInterval(()=>{
-    index=(index+1)%3;
-    slides.style.transition="transform 1.2s ease-in-out";
-    slides.style.transform=`translateX(-${index*100}%)`;
-},3500);
+// TEXT + VOICE
+const texts=["Welcome to True Faith Youth.","Friday Prayer 6PM.","Stay connected and prayerful."];
+let i=0,j=0;
+function type(){
+    let el=document.getElementById("typewriter");
+    if(j<texts[i].length){
+        el.textContent+=texts[i][j++];
+        setTimeout(type,40);
+    }else{
+        setTimeout(()=>{el.textContent="";j=0;i=(i+1)%texts.length;type();},2000);
+    }
+}
+type();
 
-/* BIBLE ROTATION */
-setInterval(showVerse,5000);showVerse();
+const bible=[
+{
+title:"1 Peter 4:7",
+text:"The end of all things is near. Be alert and sober so that you may pray.",
+explain:"Stay focused, disciplined, and prayerful."
+},
+{
+title:"2 Peter 3:17",
+text:"Be on your guard so you are not carried away by error.",
+explain:"Protect your faith and stay grounded."
+}
+];
+
+let b=0;
+function showVerse(){
+    document.getElementById("verse-title").textContent=bible[b].title;
+    document.getElementById("verse-text").textContent=bible[b].text;
+    document.getElementById("verse-explain").textContent=bible[b].explain;
+    b=(b+1)%bible.length;
+}
+setInterval(showVerse,5000);
+showVerse();
+
+document.getElementById("mover-text").textContent="Welcome ✦ Prayer ✦ Youth ✦ Faith ✦ Jesus";
+
+function readAnnouncement(){
+    speechSynthesis.cancel();
+    speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById("typewriter").textContent));
+}
+
+function readVerse(){
+    speechSynthesis.cancel();
+    speechSynthesis.speak(new SpeechSynthesisUtterance(
+        document.getElementById("verse-title").textContent+" "+
+        document.getElementById("verse-text").textContent+" "+
+        document.getElementById("verse-explain").textContent
+    ));
+}
 
 </script></body>
 </html>
