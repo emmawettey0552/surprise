@@ -1,323 +1,267 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>True Faith Church Youth Association</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+<title>True Faith Church International of Ghana - Youth Association</title>
 
-body{
-    background:#f4f6f9;
-    overflow-x:hidden;
-}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f9;}
 
 .container{
-    width:100%;
-    max-width:100%;
-    margin:auto;
-    background:#fff;
+    width:90%;max-width:1200px;margin:20px auto;
+    background:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    border-radius:12px;overflow:hidden;
 }
 
-/* PRELOADER */
-#preloader{
-    position:fixed;
-    inset:0;
-    background:linear-gradient(135deg,#b30000,#7a0000);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-}
-
-#preloader img{
-    width:90px;
-    border-radius:12px;
-    animation:pulse 1.5s infinite;
-    box-shadow:0 0 20px rgba(255,255,255,0.3);
-}
-
-.loader-spinner{
-    width:45px;
-    height:45px;
-    margin-top:15px;
-    border:4px solid rgba(255,255,255,0.3);
-    border-top:4px solid #fff;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
-}
-
-@keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.1)}
-    100%{transform:scale(1)}
-}
-
-/* HEADER */
 .header{
-    position:relative;
-    text-align:center;
-    padding:60px 15px 30px;
+    position:relative;text-align:center;
+    padding:70px 20px 40px;
     background:linear-gradient(135deg,#b30000,#ff4d4d);
     color:white;
 }
 
-.header img{
-    width:60px;
-    position:absolute;
-    top:10px;
-}
+.header img{width:70px;position:absolute;top:10px;}
+.logo-left{left:15px;}
+.logo-right{right:15px;}
 
-.logo-left{left:10px;}
-.logo-right{right:10px;}
-
-.header h1{font-size:18px;}
-.header h2{font-size:13px;}
-
-/* MOVER */
 .mover-container{
-    overflow:hidden;
-    background:#800000;
-    color:white;
+    overflow:hidden;background:#b30000;color:#fff;padding:10px 0;
 }
-
 .mover{
-    white-space:nowrap;
-    padding:10px;
-    animation:scroll 20s linear infinite;
+    white-space:nowrap;animation:scrollText 20s linear infinite;
+}
+@keyframes scrollText{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
 }
 
-@keyframes scroll{
-    from{transform:translateX(100%)}
-    to{transform:translateX(-100%)}
+/* SLIDESHOW */
+.banner{position:relative;height:320px;overflow:hidden;}
+.slide{
+    position:absolute;width:100%;height:100%;
+    opacity:0;transform:scale(1.1);
+    transition:opacity 1s ease,transform 1.5s ease;
+}
+.slide.active{opacity:1;transform:scale(1);}
+.slide img{width:100%;height:100%;object-fit:cover;}
+
+.prev,.next{
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:rgba(0,0,0,0.5);color:#fff;border:none;
+    padding:10px;border-radius:50%;cursor:pointer;
+}
+.prev{left:15px;} .next{right:15px;}
+
+.dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);}
+.dots span{
+    height:10px;width:10px;margin:5px;background:#ccc;
+    display:inline-block;border-radius:50%;cursor:pointer;
+}
+.active-dot{background:#b30000;}
+
+.quote-carousel{
+    position:absolute;bottom:50px;left:50%;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.6);color:#fff;
+    padding:10px;border-radius:8px;
 }
 
-/* SLIDER */
-.banner{
-    position:relative;
-    width:100%;
-    height:220px;
-    overflow:hidden;
+.announcement-panel{padding:40px;text-align:center;}
+.screen{
+    background:black;color:#00ff9c;padding:20px;
+    border-radius:10px;font-family:monospace;
 }
 
-.slides{
-    display:flex;
-    width:300%;
-    height:100%;
-    animation:slide 12s infinite;
-}
-
-.slides img{
-    width:100%;
-    height:100%;
+.members{padding:40px;text-align:center;}
+.member-grid{display:flex;justify-content:center;gap:30px;}
+.member img{
+    width:110px;height:110px;border-radius:50%;
     object-fit:cover;
 }
 
-@keyframes slide{
-    0%,30%{transform:translateX(0)}
-    33%,63%{transform:translateX(-100%)}
-    66%,100%{transform:translateX(-200%)}
-}
-
-/* PANEL */
-.announcement-panel{
-    padding:20px;
-    text-align:center;
-}
-
-.screen{
-    background:black;
-    color:#00ff9c;
-    padding:10px;
-    border-radius:8px;
-    min-height:50px;
-    font-family:monospace;
-}
-
-button{
-    margin-top:10px;
-    padding:8px 15px;
-    border:none;
-    background:#b30000;
-    color:white;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-button:hover{
-    opacity:0.9;
-}
-
-/* BIBLE */
-.bible-section{
-    padding:20px;
-    text-align:center;
-}
-
-.verse-box{
-    background:#fff3f3;
-    border-left:5px solid #b30000;
-    padding:10px;
-    margin:10px auto;
-    border-radius:8px;
-    max-width:95%;
-}
-
-.verse{font-style:italic;}
-
-/* MEMBERS */
-.members{
-    padding:20px;
-    text-align:center;
-}
-
-.member-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
-
-.member{
-    width:120px;
-}
-
-.member img{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-}
-
-/* FOOTER */
 .footer{
-    background:#b30000;
-    color:white;
-    text-align:center;
-    padding:10px;
+    text-align:center;padding:20px;
+    background:#b30000;color:white;
 }
-</style></head><body><!-- PRELOADER --><div id="preloader">
-    <img src="images.jpeg" alt="logo">
-    <div class="loader-spinner"></div>
-</div><div class="container"><!-- HEADER --><div class="header">
-    <img src="images.jpeg" class="logo-left">
-    <img src="images.jpeg" class="logo-right">
-    <h1>True Faith Church International</h1>
-    <h2>Youth Association</h2>
-</div><!-- MOVER --><div class="mover-container">
-    <div class="mover" id="mover-text"></div>
-</div><!-- SLIDER --><div class="banner">
-    <div class="slides">
-        <img src="file_00000000386071f6857c6b16586d46ed.png">
-        <img src="file_00000000386071f6857c6b16586d46ed.png">
-        <img src="file_00000000386071f6857c6b16586d46ed.png">
-    </div>
-</div><!-- PANEL --><section class="announcement-panel">
-    <h3>📢 Announcements</h3>
-    <div class="screen"><span id="typewriter"></span></div>
-    <button onclick="readAnnouncement()">🔊 Read Announcement</button>
-    <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
-</section><!-- BIBLE --><section class="bible-section">
-    <h3>📖 Bible Insight</h3>
-    <div class="verse-box">
-        <h4 id="verse-title"></h4>
-        <p class="verse" id="verse-text"></p>
-        <p id="verse-explain"></p>
-    </div>
-    <button onclick="readVerse()">🔊 Read Bible</button>
-</section><!-- MEMBERS --><div class="members">
-    <h3>Executive Members</h3>
-    <div class="member-grid">
-        <div class="member">
-            <img src="member1.jpg">
-            <p>Sir John</p>
-        </div>
-        <div class="member">
-            <img src="member2.jpg">
-            <p>Mr. Samuel</p>
-        </div>
-    </div>
-</div><div class="footer">© 2026 True Faith Church Youth Association</div></div><!-- AUDIO --><audio id="bg-music" loop>
-    <source src="Honhom_Nwom(48k).m4a" type="audio/m4a">
-</audio><script>
 
-// PRELOADER REMOVE (FAST 4s)
-window.addEventListener('load',()=>{
-    setTimeout(()=>{
-        document.getElementById('preloader').style.display='none';
-    },4000);
-});
+/* MUSIC BUTTON */
+.music-btn{
+    position:fixed;bottom:20px;right:20px;
+    width:55px;height:55px;border-radius:50%;
+    background:#b30000;color:#fff;border:none;
+    font-size:18px;cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+</style>
+</head>
 
-// MUSIC FIX
-const music=document.getElementById("bg-music");
+<body>
+
+<div class="container">
+
+<div class="header">
+<img src="images.jpeg" class="logo-left">
+<img src="images.jpeg" class="logo-right">
+<h1>True Faith Church International of Ghana</h1>
+<h2>Youth Association</h2>
+</div>
+
+<!-- MOVER -->
+<div class="mover-container">
+<div class="mover">
+<span id="mover-text"></span>
+</div>
+</div>
+
+<!-- SLIDESHOW -->
+<div class="banner">
+
+<div class="slide active"><img src="file_00000000386071f6857c6b16586d46ed.png"></div>
+<div class="slide"><img src="banner2.jpg"></div>
+<div class="slide"><img src="banner3.jpg"></div>
+
+<button class="prev" onclick="changeSlide(-1)">❮</button>
+<button class="next" onclick="changeSlide(1)">❯</button>
+
+<div class="dots" id="dots"></div>
+
+<div class="quote-carousel" id="quote"></div>
+</div>
+
+<!-- PANEL -->
+<section class="announcement-panel">
+<h2>📢 Youth Announcements</h2>
+<div class="screen">
+<span id="typewriter"></span><span>|</span>
+</div>
+<button onclick="readAnnouncement()">🔊 Read</button>
+</section>
+
+<!-- MEMBERS -->
+<div class="members">
+<h2>Executive Members</h2>
+<div class="member-grid">
+<div class="member">
+<img src="member1.jpg">
+<h4>Sir John</h4>
+<p>Leader</p>
+</div>
+<div class="member">
+<img src="member2.jpg">
+<h4>Mr. Samuel</h4>
+<p>Leader</p>
+</div>
+</div>
+</div>
+
+<div class="footer">
+© 2026 True Faith Church International of Ghana – Youth Association
+</div>
+
+</div>
+
+<!-- MUSIC -->
+<button id="musicBtn" onclick="toggleMusic()" class="music-btn">▶</button>
+
+<audio id="bgMusic" loop>
+    <source src="Honhom_Nwom(48k).m4a" type="audio/mp4">
+</audio>
+
+<script>
+
+/* MUSIC */
+const music=document.getElementById("bgMusic");
+const btn=document.getElementById("musicBtn");
+
 function toggleMusic(){
     if(music.paused){
-        music.play().catch(()=>{});
+        music.play();
+        btn.textContent="⏸";
     }else{
         music.pause();
+        btn.textContent="▶";
     }
 }
 
-// TEXT + VOICE
-const texts=["Welcome to True Faith Youth.","Friday Prayer 6PM.","Stay connected and prayerful."];
-let i=0,j=0;
-function type(){
-    let el=document.getElementById("typewriter");
-    if(j<texts[i].length){
-        el.textContent+=texts[i][j++];
-        setTimeout(type,40);
-    }else{
-        setTimeout(()=>{el.textContent="";j=0;i=(i+1)%texts.length;type();},2000);
-    }
-}
-type();
+/* SLIDES */
+let slideIndex=0;
+const slides=document.querySelectorAll(".slide");
+const dotsContainer=document.getElementById("dots");
 
-const bible=[
-{
-title:"1 Peter 4:7",
-text:"The end of all things is near. Be alert and sober so that you may pray.",
-explain:"Stay focused, disciplined, and prayerful."
-},
-{
-title:"2 Peter 3:17",
-text:"Be on your guard so you are not carried away by error.",
-explain:"Protect your faith and stay grounded."
+slides.forEach((_,i)=>{
+let dot=document.createElement("span");
+dot.onclick=()=>showSlide(i);
+dotsContainer.appendChild(dot);
+});
+const dots=dotsContainer.children;
+
+function showSlide(n){
+slides.forEach(s=>s.classList.remove("active"));
+for(let d of dots)d.classList.remove("active-dot");
+slideIndex=(n+slides.length)%slides.length;
+slides[slideIndex].classList.add("active");
+dots[slideIndex].classList.add("active-dot");
 }
+function changeSlide(n){showSlide(slideIndex+n);}
+setInterval(()=>changeSlide(1),4000);
+showSlide(0);
+
+/* TYPEWRITER */
+const texts=[
+"Welcome to True Faith Church Youth.",
+"Friday Prayer 6PM.",
+"On Monday morning from 7:00 there are prayers.",
+"Monday-Friday 7:00-9:00 prayer meetings.",
+"Led by Sir John and Mr. Samuel.",
+"Saturday church service."
 ];
 
-let b=0;
-function showVerse(){
-    document.getElementById("verse-title").textContent=bible[b].title;
-    document.getElementById("verse-text").textContent=bible[b].text;
-    document.getElementById("verse-explain").textContent=bible[b].explain;
-    b=(b+1)%bible.length;
-}
-setInterval(showVerse,5000);
-showVerse();
+let i=0,j=0;
+function type(){
+if(j<texts[i].length){
+document.getElementById("typewriter").textContent+=texts[i][j++];
+setTimeout(type,50);
+}else{
+setTimeout(()=>{
+document.getElementById("typewriter").textContent="";
+j=0;i=(i+1)%texts.length;type();
+},2000);
+}}
+type();
 
-document.getElementById("mover-text").textContent="Welcome ✦ Prayer ✦ Youth ✦ Faith ✦ Jesus";
+/* MOVER */
+const mover=[
+"Welcome to True Faith Church Youth",
+"Prayer meetings Monday-Friday 7:00-9:00",
+"Led by Sir John & Mr. Samuel",
+"Saturday Service"
+];
+document.getElementById("mover-text").textContent=mover.join(" | ");
 
+/* QUOTES */
+const quotes=[
+"You are the light of the world – Matthew 5:14",
+"Let your light shine – Matthew 5:16",
+"I can do all things – Philippians 4:13"
+];
+let q=0;
+setInterval(()=>{
+document.getElementById("quote").textContent=quotes[q];
+q=(q+1)%quotes.length;
+},3000);
+
+/* VOICE */
 function readAnnouncement(){
-    speechSynthesis.cancel();
-    speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById("typewriter").textContent));
+speechSynthesis.cancel();
+let text=document.getElementById("typewriter").textContent;
+speechSynthesis.speak(new SpeechSynthesisUtterance(text));
 }
 
-function readVerse(){
-    speechSynthesis.cancel();
-    speechSynthesis.speak(new SpeechSynthesisUtterance(
-        document.getElementById("verse-title").textContent+" "+
-        document.getElementById("verse-text").textContent+" "+
-        document.getElementById("verse-explain").textContent
-    ));
-}
+</script>
 
-</script></body>
+</body>
 </html>
